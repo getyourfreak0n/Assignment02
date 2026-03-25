@@ -31,13 +31,15 @@ public class PlayerController : MonoBehaviour
     {
         input = inputHandler.moveVector;
         movement = new Vector3(input.x * moveSpeed, 0, input.y * moveSpeed);
+        
+        bool isMoving = input.magnitude > 0.1f;
+        animator.SetBool("isRunning", isMoving);
        
         if (movement != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
         }
-
         
         if (jumpBufferTimer > -1f) 
         {
@@ -55,7 +57,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z); 
             jumping();
-            jumpBufferTimer = 0f;              
+            jumpBufferTimer = 0f;  
+        }
+        else if (grounded && rb.linearVelocity.y <= 0.1f)
+        {
+            animator.SetBool("isJumping", false);
         }
     }
 
@@ -64,14 +70,12 @@ public class PlayerController : MonoBehaviour
         jumpBufferTimer = jumpBufferTime;      
     }
     
-    
     bool isGrounded()
     {
         Vector3 spherePosition = transform.position + (Vector3.down * rayLength);
         return Physics.CheckSphere(spherePosition, groundCheckRadius, groundLayer);
     }
 
-    
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -83,5 +87,6 @@ public class PlayerController : MonoBehaviour
     void jumping()
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        animator.SetBool("isJumping", true);
     }
 }
