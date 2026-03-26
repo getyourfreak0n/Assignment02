@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3294208536604426464}
-  m_Layer: 0
+  - component: {fileID: 530967276882269722}
+  m_Layer: 3
   m_Name: Baker_house
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 6571601888481611912}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &530967276882269722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351010397087084706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.639358, y: 7.100686, z: 9.221493}
+  m_Center: {x: -0.21134233, y: 3.568872, z: 0.17551899}
 --- !u!1001 &6571601888481741320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43,6 +65,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 06f242e6d0ae1dd4abc5e5ff41c613c1, type: 3}
       propertyPath: m_Name
       value: Baker_house
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 06f242e6d0ae1dd4abc5e5ff41c613c1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 06f242e6d0ae1dd4abc5e5ff41c613c1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -89,7 +115,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 06f242e6d0ae1dd4abc5e5ff41c613c1, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b1900940b6bb6884a8ae11ce9341b36f, type: 2}
     m_RemovedComponents: []
