@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class BaseCollectible : MonoBehaviour, ICollectible
 {
-    [Header("Movement")]
     [SerializeField] float rotationSpeed = 100f;
-
-    [Header("Effects")]
+    
     [SerializeField] GameObject collectParticle;
     [SerializeField] AudioClip collectSound;
 
